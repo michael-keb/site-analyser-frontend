@@ -46,6 +46,7 @@
     urlInput: $('url-input'),
     btnAnalyse: $('btn-analyse'),
     formError: $('form-error'),
+    loaderPipedrive: $('loader-pipedrive'),
     formWarning: $('form-warning'),
     formCached: $('form-cached'),
     btnWarningCancel: $('btn-warning-cancel'),
@@ -215,20 +216,63 @@
     L.info('submit', `Validated URL: ${state.url} (domain: ${state.domain})`);
     L.traceState('pre-cache-check', { url: state.url, domain: state.domain });
 
-    checkCachedReport(state.url)
-      .then((cached) => {
-        if (cached) {
-          L.info('cache', 'Cached report found', cached);
-          els.formCached.classList.remove('hidden');
-          els.btnAnalyse.disabled = false;
-        } else {
-          L.info('cache', 'No cached report — starting Phase 1');
+    function proceedToAnalysis() {
+      checkCachedReport(state.url)
+        .then((cached) => {
+          if (cached) {
+            L.info('cache', 'Cached report found', cached);
+            els.formCached.classList.remove('hidden');
+            els.btnAnalyse.disabled = false;
+          } else {
+            L.info('cache', 'No cached report — starting Phase 1');
+            runPhase1(state.url);
+          }
+        })
+        .catch((err) => {
+          L.warn('cache', 'Cache check failed, proceeding to Phase 1', { error: err.message });
           runPhase1(state.url);
+        });
+    }
+
+    function hideLoaderAndProceed() {
+      if (els.loaderPipedrive) els.loaderPipedrive.classList.add('hidden');
+      proceedToAnalysis();
+    }
+
+    function hideLoaderAndError(msg) {
+      if (els.loaderPipedrive) els.loaderPipedrive.classList.add('hidden');
+      els.btnAnalyse.disabled = false;
+      showFormError(msg, true);
+    }
+
+    // Create Pipedrive lead first; on success, proceed to analysis
+    els.loaderPipedrive?.classList.remove('hidden');
+    fetch(`${CONFIG.apiBase}/create-lead`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: state.contact.name,
+        email: state.contact.email,
+        phone: state.contact.phone,
+        url: state.url,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.ok) {
+          L.info('pipedrive', 'Lead created successfully');
+          hideLoaderAndProceed();
+        } else if (data.error && data.error.toLowerCase().includes('not configured')) {
+          L.info('pipedrive', 'Pipedrive not configured — skipping lead, proceeding');
+          hideLoaderAndProceed();
+        } else {
+          L.warn('pipedrive', 'Lead creation failed', data);
+          hideLoaderAndError(data.error || 'Failed to send lead. Please try again.');
         }
       })
       .catch((err) => {
-        L.warn('cache', 'Cache check failed, proceeding to Phase 1', { error: err.message });
-        runPhase1(state.url);
+        L.error('pipedrive', 'Create-lead request failed', { error: err.message });
+        hideLoaderAndError('Could not connect. Please check your connection and try again.');
       });
   }
 

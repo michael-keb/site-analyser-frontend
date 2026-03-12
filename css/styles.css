@@ -918,6 +918,30 @@ strong { font-weight: 700; }
 }
 
 /* ── UTILITY ─────────────────────────────────────────────── */
+/* ── Loader overlay (Pipedrive lead) ───────────────────────── */
+.loader-overlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(26,26,26,0.85);
+  display: flex; align-items: center; justify-content: center;
+}
+.loader-content {
+  text-align: center; color: #fff;
+}
+.loader-spinner {
+  width: 40px; height: 40px;
+  margin: 0 auto 1rem;
+  border: 3px solid rgba(250,204,21,0.3);
+  border-top-color: #facc15;
+  border-radius: 50%;
+  animation: loader-spin 0.8s linear infinite;
+}
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+.loader-text {
+  font-size: 0.95rem; color: rgba(255,255,255,0.9);
+}
+
 .hidden { display: none !important; }
 .text-center { text-align: center; }
 .mt-1 { margin-top: 0.5rem; }
