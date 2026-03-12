@@ -46,7 +46,7 @@
     urlInput: $('url-input'),
     btnAnalyse: $('btn-analyse'),
     formError: $('form-error'),
-    loaderPipedrive: $('loader-pipedrive'),
+    btnAnalyseSpinner: document.querySelector('#btn-analyse .btn-analyse-spinner'),
     formWarning: $('form-warning'),
     formCached: $('form-cached'),
     btnWarningCancel: $('btn-warning-cancel'),
@@ -191,7 +191,6 @@
     clearFormError();
     els.formWarning.classList.add('hidden');
     els.formCached.classList.add('hidden');
-
     const contactResult = validateContact();
     if (!contactResult.valid) {
       showFormError(contactResult.error, true);
@@ -234,19 +233,14 @@
         });
     }
 
-    function hideLoaderAndProceed() {
-      if (els.loaderPipedrive) els.loaderPipedrive.classList.add('hidden');
-      proceedToAnalysis();
+    function setButtonLoading(loading) {
+      els.btnAnalyse.disabled = loading;
+      els.btnAnalyseSpinner?.classList.toggle('hidden', !loading);
     }
 
-    function hideLoaderAndError(msg) {
-      if (els.loaderPipedrive) els.loaderPipedrive.classList.add('hidden');
-      els.btnAnalyse.disabled = false;
-      showFormError(msg, true);
-    }
+    setButtonLoading(true);
+    clearFormError();
 
-    // Create Pipedrive lead first; on success, proceed to analysis
-    els.loaderPipedrive?.classList.remove('hidden');
     fetch(`${CONFIG.apiBase}/create-lead`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -260,19 +254,19 @@
       .then((res) => res.json())
       .then((data) => {
         if (data.ok) {
-          L.info('pipedrive', 'Lead created successfully');
-          hideLoaderAndProceed();
-        } else if (data.error && data.error.toLowerCase().includes('not configured')) {
-          L.info('pipedrive', 'Pipedrive not configured — skipping lead, proceeding');
-          hideLoaderAndProceed();
+          L.info('pipedrive', 'Deal created successfully');
+          setButtonLoading(false);
+          proceedToAnalysis();
         } else {
-          L.warn('pipedrive', 'Lead creation failed', data);
-          hideLoaderAndError(data.error || 'Failed to send lead. Please try again.');
+          L.warn('pipedrive', 'Deal creation failed', data);
+          setButtonLoading(false);
+          showFormError(data.error || 'Could not create deal.', true);
         }
       })
       .catch((err) => {
         L.error('pipedrive', 'Create-lead request failed', { error: err.message });
-        hideLoaderAndError('Could not connect. Please check your connection and try again.');
+        setButtonLoading(false);
+        showFormError('Could not create deal. Please try again.', true);
       });
   }
 
@@ -841,7 +835,29 @@
   }, 1000);
 
   // ── Init ───────────────────────────────────────────────────
-  showView('landing');
+  const pathMatch = window.location.pathname.match(/^\/report\/([^/]+)$/);
+  if (pathMatch) {
+    const token = pathMatch[1];
+    L.info('share', `Resolving shared link token: ${token}`);
+    fetch(`${CONFIG.apiBase}/resolve-share?token=${encodeURIComponent(token)}`)
+      .then((res) => res.ok ? res.json() : Promise.reject(new Error('Invalid or expired')))
+      .then((data) => {
+        state.reportId = data.reportId;
+        return fetch(`${CONFIG.apiBase}/report/${data.reportId}/meta`).then((r) => r.ok ? r.json() : { domain: 'Report' });
+      })
+      .then((meta) => {
+        state.domain = meta.domain || 'Report';
+        showReport({ reportId: state.reportId });
+      })
+      .catch((err) => {
+        L.warn('share', 'Shared link resolve failed', { error: err.message });
+        showView('landing');
+        els.formError.textContent = 'This report link is invalid or has expired.';
+      });
+  } else {
+    showView('landing');
+  }
+
   if (els.navMeta) els.navMeta.textContent = new Date().toLocaleDateString('en-AU', {
     day: '2-digit', month: 'short', year: 'numeric',
   });

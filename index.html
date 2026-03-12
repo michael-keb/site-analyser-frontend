@@ -33,18 +33,13 @@
           autocomplete="url"
           spellcheck="false"
         >
-        <button type="submit" class="btn-analyse" id="btn-analyse">Analyse Site</button>
+        <button type="submit" class="btn-analyse" id="btn-analyse">
+          <span class="btn-analyse-text">Analyse Site</span>
+          <span class="btn-analyse-spinner hidden" aria-hidden="true"></span>
+        </button>
       </div>
     </form>
     <div class="form-error" id="form-error"></div>
-
-    <!-- Pipedrive lead loader overlay (hidden by default) -->
-    <div class="loader-overlay hidden" id="loader-pipedrive">
-      <div class="loader-content">
-        <div class="loader-spinner"></div>
-        <p class="loader-text">Connecting to Pipedrive to send the lead…</p>
-      </div>
-    </div>
 
     <a href="#ways-of-working" class="hero-scroll-hint">How we work with you ↓</a>
 
