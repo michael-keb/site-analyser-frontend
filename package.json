@@ -2,6 +2,7 @@
   "name": "storeconnect-site-analyser-frontend",
   "version": "1.0.0",
   "description": "Interactive frontend for the StoreConnect Site Analyser — Praxis branded",
+  "repository": "https://github.com/michael-keb/site-analyser-frontend",
   "private": true,
   "scripts": {
     "dev": "npx serve . -l 3000 -s",
