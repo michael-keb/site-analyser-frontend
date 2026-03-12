@@ -1,0 +1,9 @@
+services:
+  - type: web
+    runtime: static
+    name: site-analyser-frontend
+    buildCommand: node scripts/build-config.js
+    staticPublishPath: .
+    envVars:
+      - key: API_URL
+        sync: false

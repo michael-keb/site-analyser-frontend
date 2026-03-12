@@ -18,7 +18,7 @@
 
   // ── Configuration ──────────────────────────────────────────
   const CONFIG = {
-    apiBase: 'http://localhost:8000/api', // Backend API root
+    apiBase: (typeof window !== 'undefined' && window.SITE_ANALYSER_API_BASE) || 'http://localhost:8000/api',
     maxPages: 15,
     reassuranceDelay: 90000,        // Show "still working" after 90s
     minStepDisplay: 800,            // Minimum ms per step for fast sites
