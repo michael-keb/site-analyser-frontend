@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StoreConnect Site Analyser</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- HERO / LANDING -->
-  <div class="hero" id="view-landing">
+  <!-- LANDING: Hero + Ways of Working -->
+  <div id="view-landing" class="landing-view">
+  <div class="hero">
     <div class="hero-tag">Praxis · StoreConnect Frontend Custodian</div>
     <h1>Analyse your StoreConnect<br>store in seconds.</h1>
     <div class="hero-sub">Enter your details and StoreConnect site URL below. We'll analyse it and email you a PDF report.</div>
@@ -34,6 +38,8 @@
     </form>
     <div class="form-error" id="form-error"></div>
 
+    <a href="#ways-of-working" class="hero-scroll-hint">How we work with you ↓</a>
+
     <!-- Non-SC site warning (hidden by default) -->
     <div class="form-warning hidden" id="form-warning">
       <p>We couldn't confirm this is a StoreConnect site — results may be limited.</p>
@@ -51,6 +57,142 @@
         <button type="button" class="btn-secondary" id="btn-cached-rerun">Re-run Analysis</button>
       </div>
     </div>
+  </div>
+
+  <!-- Ways of Working Pamphlet — exact match to dba-ai-main /storeconnect -->
+  <section class="pamphlet" id="ways-of-working">
+    <!-- Hero: black bg, white text -->
+    <div class="pamphlet-hero">
+      <div class="pamphlet-container">
+        <p class="pamphlet-label">Ways of Working Pamphlet</p>
+        <h2 class="pamphlet-display">Your Store.<br>Done Right.</h2>
+        <p class="pamphlet-lead">We're StoreConnect frontend specialists. We build the storefront your customers see — themes, components, performance. No guesswork. No surprises.</p>
+      </div>
+    </div>
+
+    <!-- §1 — What We Do (white bg) -->
+    <div class="pamphlet-section" id="wow-what">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag">§01</p>
+        <h3 class="pamphlet-headline">What We Do</h3>
+        <p>StoreConnect frontend engineering. We build the storefront your customers see — themes, components, layouts, performance. <strong>On-brand. Fast. Built to last.</strong></p>
+        <div class="pamphlet-grid2">
+          <div class="pamphlet-box"><p>We use StoreConnect's standard building blocks: Base Theme, Theme Builder, content blocks, and components. <strong>No cowboy code.</strong></p></div>
+          <div class="pamphlet-box"><p>We stay aligned with StoreConnect's official guidelines so your store is stable, upgradeable, and future‑proof.</p></div>
+        </div>
+        <p class="pamphlet-small">Curious about the tech? <a href="https://support.getstoreconnect.com" target="_blank" rel="noopener noreferrer">support.getstoreconnect.com</a> — no need to be an expert.</p>
+      </div>
+    </div>
+
+    <!-- §2 — Why Praxis (black bg) -->
+    <div class="pamphlet-section pamphlet-inverted" id="wow-why">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag pamphlet-sectag-dark">§02</p>
+        <h3 class="pamphlet-headline">Why Praxis?</h3>
+        <p>You could figure it out yourself. Or you could get it done right, on time, and move on to running your business.</p>
+        <div class="pamphlet-table-wrap"><table class="pamphlet-table"><thead><tr><th></th><th>Praxis</th><th>Going it alone</th></tr></thead><tbody>
+          <tr><td>Single point of contact</td><td>✓ One person owns your project</td><td>— You're the project manager</td></tr>
+          <tr><td>StoreConnect expertise</td><td>✓ It's what we do</td><td>— Learning curve on you</td></tr>
+          <tr><td>Standards-compliant</td><td>✓ Upgrade-safe, future-proof</td><td>— Easy to break upgrades</td></tr>
+          <tr><td>Testing & alerts</td><td>✓ Automated checks</td><td>— You find out when customers complain</td></tr>
+          <tr><td>Timeline clarity</td><td>✓ Plan → Build → Test → Deploy → Monitor</td><td>— Hope and spreadsheets</td></tr>
+          <tr><td>Your time</td><td>You focus on your business</td><td>You become the frontend engineer</td></tr>
+        </tbody></table></div>
+        <h4 class="pamphlet-headline-sm">Signs you're ready to work with us</h4>
+        <ul class="pamphlet-list"><li>You want a store that looks professional and converts — not a DIY experiment</li><li>You'd rather spend time on products and customers than on theme config</li><li>You want one person to call when something breaks</li><li>You're done with "we'll figure it out" — you want a plan</li></ul>
+      </div>
+    </div>
+
+    <!-- §3 — How We Work Together (white bg) -->
+    <div class="pamphlet-section" id="wow-how">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag">§03</p>
+        <h3 class="pamphlet-headline">How We Work Together</h3>
+        <p>No runaround. One contact. Clear feedback loops. You always know where you stand.</p>
+        <div class="pamphlet-checklist pamphlet-checklist-large"><p class="pamphlet-checklist-title">Your pre‑launch checklist</p><ul>
+          <li>Brand guidelines (logo, colours, fonts) ready</li><li>Access to StoreConnect / Salesforce (with the right roles)</li><li>Content for priority pages (home, products, about, FAQs)</li><li>One decision-maker for feedback and sign-off</li><li>2–3 business days for feedback when we send staging links</li>
+        </ul></div>
+        <div class="pamphlet-diagram"><div class="pamphlet-diagram-header"><span>Relationship Overview</span><span>Fig. 1</span></div><div class="pamphlet-diagram-body pamphlet-relationship"><div class="pamphlet-rel-box">Client / Partner</div><div class="pamphlet-rel-arrows"><span>Questions &amp; decisions →</span><span>← Updates &amp; next steps</span></div><div class="pamphlet-rel-box"><p class="pamphlet-rel-title">Praxis Team</p><div class="pamphlet-rel-lead">Project Lead</div><div class="pamphlet-rel-roles"><span>Design</span><span>Dev</span><span>Test</span></div></div></div><div class="pamphlet-diagram-caption">Your team communicates with the Project Lead. The Project Lead coordinates Design, Development, and Testing internally.</div></div>
+        <div class="pamphlet-subsection"><h4>Your main contact</h4><p>You have a single primary contact at Praxis (your "project lead"). They own day‑to‑day questions, updates, and decisions. If more specialists are involved, your project lead coordinates them.</p></div>
+        <div class="pamphlet-subsection"><h4>Check‑ins and syncs</h4><p>We agree on a regular check‑in rhythm at the start. Each check‑in covers: what's done, what's in progress, what's blocked, and what's next.</p></div>
+        <div class="pamphlet-diagram"><div class="pamphlet-diagram-header"><span>Communication &amp; Feedback Loop</span><span>Fig. 2</span></div><div class="pamphlet-diagram-body pamphlet-feedback-loop"><span class="pamphlet-fb-step"><span class="pamphlet-fb-num">1</span> Staging link + summary</span><span class="pamphlet-fb-arrow">→</span><span class="pamphlet-fb-step"><span class="pamphlet-fb-num">2</span> Client reviews + feedback</span><span class="pamphlet-fb-arrow">→</span><span class="pamphlet-fb-step"><span class="pamphlet-fb-num">3</span> Praxis updates + confirms</span></div><div class="pamphlet-diagram-caption">Staging link sent → Client feedback → Changes made → Repeat until sign‑off.</div></div>
+        <div class="pamphlet-subsection"><h4>How you give feedback</h4><p>We share staging links so you can click through and experience changes before they go live. Feedback goes in one place — nothing is lost. We clearly mark what is "must fix" before launch and what can wait.</p></div>
+        <div class="pamphlet-table-wrap"><table class="pamphlet-table pamphlet-table-2col"><thead><tr><th>Stage</th><th>What we need</th></tr></thead><tbody><tr><td>At the start</td><td>Brand guidelines, inspiration sites, your key goals</td></tr><tr><td>Before we build</td><td>StoreConnect/Salesforce access, content for priority pages, any special rules</td></tr><tr><td>During review</td><td>Timely feedback on staging links, clear sign-off at each milestone</td></tr></tbody></table></div>
+        <div class="pamphlet-diagram"><div class="pamphlet-diagram-header"><span>Responsibilities Matrix</span><span>Fig. 3</span></div><div class="pamphlet-diagram-body pamphlet-responsibilities"><div class="pamphlet-resp-item"><span class="pamphlet-resp-area">Planning</span><p><strong>Praxis:</strong> Lead planning, propose structure and timeline</p><p><strong>You:</strong> Provide goals, constraints, and priorities</p></div><div class="pamphlet-resp-item"><span class="pamphlet-resp-area">Content &amp; brand</span><p><strong>Praxis:</strong> Implement brand in StoreConnect</p><p><strong>You:</strong> Provide brand guidelines and content</p></div><div class="pamphlet-resp-item"><span class="pamphlet-resp-area">Testing</span><p><strong>Praxis:</strong> Run technical and flow testing</p><p><strong>You:</strong> Try key flows and confirm they feel right</p></div><div class="pamphlet-resp-item"><span class="pamphlet-resp-area">Decisions</span><p><strong>Praxis:</strong> Highlight decisions and risks</p><p><strong>You:</strong> Approve or adjust</p></div></div><div class="pamphlet-diagram-caption">Reduces "I thought you were doing that" moments.</div></div>
+        <div class="pamphlet-callout"><h4>No Surprises</h4><p>If we hit a blocker, we tell you. Fast. If timelines shift, we explain why and offer options.</p><blockquote>"Bad news doesn't age well. We surface it early. You get options. You stay in control."</blockquote></div>
+        <div class="pamphlet-diagram"><div class="pamphlet-diagram-header"><span>Risk &amp; Escalation Flow</span><span>Fig. 4</span></div><div class="pamphlet-diagram-body pamphlet-flow"><div class="pamphlet-flow-step pamphlet-flow-accent">Blocker or risk identified</div><span class="pamphlet-flow-arrow">↓</span><div class="pamphlet-flow-step">We inform you (what, why, impact)</div><span class="pamphlet-flow-arrow">↓</span><p class="pamphlet-flow-label">Can fix within scope?</p><div class="pamphlet-flow-branch"><div><p class="pamphlet-flow-yes">Yes</p><div class="pamphlet-flow-step pamphlet-flow-small">Adjust plan &amp; confirm</div></div><div><p class="pamphlet-flow-no">No</p><div class="pamphlet-flow-step pamphlet-flow-small">Discuss options, agree new plan</div></div></div></div><div class="pamphlet-diagram-caption">Bad news doesn't come at launch day — it's caught and discussed early.</div></div>
+      </div>
+
+    <!-- §4 — Our Process (black bg) -->
+    <div class="pamphlet-section pamphlet-inverted" id="wow-process">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag pamphlet-sectag-dark">§04</p>
+        <h3 class="pamphlet-headline">Our Process</h3>
+        <p>Plan. Build. Test. Deploy. Monitor. Five steps. No mystery.</p>
+        <div class="pamphlet-timeline-bar"><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">1</span><span>Plan</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">2</span><span>Build</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">3</span><span>Test</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">4</span><span>Deploy</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">5</span><span>Monitor</span></div></div>
+        <div class="pamphlet-process-steps">
+          <div class="pamphlet-ps-item"><span class="pamphlet-ps-num">1</span><div><h4>Plan</h4><p>Agree on what we are doing, when, and who does what. We define scope, timelines, milestones, and responsibilities. We align on brand and structure.</p><p class="pamphlet-ps-outcome">Outcome: A shared plan that everyone understands.</p></div></div>
+          <div class="pamphlet-ps-item"><span class="pamphlet-ps-num">2</span><div><h4>Build</h4><p>Turn the plan into a working StoreConnect site. We apply your brand, set up page layouts, and wire in key flows like browse → add to cart → checkout.</p><p class="pamphlet-ps-outcome">Outcome: A working, branded version of your store on staging.</p></div></div>
+          <div class="pamphlet-ps-item"><span class="pamphlet-ps-num">3</span><div><h4>Test</h4><p>Make sure things work before customers see them. We test key flows end‑to‑end, run AI‑assisted and manual checks. You can test the staging site too.</p><p class="pamphlet-ps-outcome">Outcome: A store that behaves correctly and feels good to use.</p></div></div>
+          <div class="pamphlet-ps-item"><span class="pamphlet-ps-num">4</span><div><h4>Deploy</h4><p>Move the tested store into production. We schedule the launch window together, push approved changes, and coordinate go‑live steps.</p><p class="pamphlet-ps-outcome">Outcome: Your new StoreConnect storefront is live.</p></div></div>
+          <div class="pamphlet-ps-item"><span class="pamphlet-ps-num">5</span><div><h4>Monitor</h4><p>Keep an eye on the live site. Automated checks and alerts detect if something breaks. We investigate and let you know.</p><p class="pamphlet-ps-outcome">Outcome: Someone is watching the health of your store.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- §5 — Standards (white bg) -->
+    <div class="pamphlet-section" id="wow-standards">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag">§05</p>
+        <h3 class="pamphlet-headline">Standards We Follow</h3>
+        <p>We build on StoreConnect's rules. No shortcuts. No tech debt. Your store stays upgradeable.</p>
+        <div class="pamphlet-diagram"><div class="pamphlet-diagram-header"><span>StoreConnect Building Blocks</span><span>Fig. 5</span></div><div class="pamphlet-diagram-body pamphlet-layers"><div class="pamphlet-layer pamphlet-layer-highlight"><span>Layer 4</span><span>Your brand, pages, content</span><span class="pamphlet-layer-tag">Praxis</span></div><div class="pamphlet-layer pamphlet-layer-highlight"><span>Layer 3</span><span>Content blocks &amp; components</span><span class="pamphlet-layer-tag">Praxis</span></div><div class="pamphlet-layer pamphlet-layer-highlight"><span>Layer 2</span><span>Base Theme + Theme Builder</span><span class="pamphlet-layer-tag">Praxis</span></div><div class="pamphlet-layer"><span>Layer 1</span><span>StoreConnect platform</span></div></div><div class="pamphlet-diagram-caption">Our frontend engineering scope. Praxis works in Layers 2–4.</div></div>
+        <p>We work with the StoreConnect Base Theme and Theme Builder rather than building one‑off custom themes that are hard to maintain.</p>
+        <p>We use StoreConnect content blocks and components as the first choice, only extending where it truly adds value.</p>
+      </div>
+    </div>
+
+    <!-- §6 — What You Get (black bg) -->
+    <div class="pamphlet-section pamphlet-inverted" id="wow-deliverables">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag pamphlet-sectag-dark">§06</p>
+        <h3 class="pamphlet-headline">What You Get</h3>
+        <p>A StoreConnect frontend that works. Documentation. Someone watching it. That's the deal.</p>
+        <div class="pamphlet-table-wrap"><table class="pamphlet-table"><thead><tr><th>Deliverable</th><th>What it means</th></tr></thead><tbody><tr><td>Branded storefront</td><td>Your colours, your content, your layout. Looks like you.</td></tr><tr><td>Tested flows</td><td>Browse → cart → checkout. We've run it. It works.</td></tr><tr><td>Automated alerts</td><td>If something breaks, we know. You know. No surprises.</td></tr><tr><td>Documentation</td><td>What we built, how to manage it. You have a reference.</td></tr><tr><td>One contact</td><td>Your project lead. Questions? Decisions? They own it.</td></tr></tbody></table></div>
+        <div class="pamphlet-checklist pamphlet-checklist-accent"><p class="pamphlet-checklist-title">Launch readiness — we handle this</p><ul><li>Component uplift and brand application</li><li>End-to-end flow testing</li><li>AI-assisted checks for broken links and layout issues</li><li>Automated monitoring and alerts</li><li>Push to production with your sign-off</li></ul></div>
+        <div class="pamphlet-table-wrap"><table class="pamphlet-table pamphlet-table-3col"><thead><tr><th>Phase</th><th>What happens</th><th>Your role</th></tr></thead><tbody><tr><td>Plan</td><td>Scope, timeline, who does what</td><td>Goals, constraints, priorities</td></tr><tr><td>Build</td><td>Brand, layouts, components</td><td>Brand guidelines, content</td></tr><tr><td>Test</td><td>Flows, automated checks</td><td>Try it, give feedback</td></tr><tr><td>Deploy</td><td>Go live</td><td>Sign off</td></tr><tr><td>Monitor</td><td>Alerts, support</td><td>Relax — we've got it</td></tr></tbody></table></div>
+      </div>
+    </div>
+
+    <!-- §7 — What You Can Expect (white bg) -->
+    <div class="pamphlet-section" id="wow-expect">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag">§07</p>
+        <h3 class="pamphlet-headline">What You Can Expect From Us</h3>
+        <p>Plain language, clear explanations, and no hidden complexity.</p>
+        <div class="pamphlet-expect-list"><div class="pamphlet-expect-item"><p class="pamphlet-expect-title">Regular communication</p><p>You always know status, risks, and next steps.</p></div><div class="pamphlet-expect-item"><p class="pamphlet-expect-title">Respect for your time</p><p>We come to meetings prepared and keep decisions moving.</p></div><div class="pamphlet-expect-item"><p class="pamphlet-expect-title">A focus on outcomes</p><p>A store that works for your customers and your business, not just a checklist of features.</p></div></div>
+      </div>
+    </div>
+
+    <!-- §8 — Quick Reference (muted gray) -->
+    <div class="pamphlet-section pamphlet-quickref" id="wow-quickref">
+      <div class="pamphlet-container">
+        <p class="pamphlet-sectag pamphlet-sectag-dark">§08</p>
+        <h3 class="pamphlet-headline">Quick Reference</h3>
+        <div class="pamphlet-quickref-list"><div class="pamphlet-quickref-row"><span>Main contact</span><span>Your Praxis project lead</span></div><div class="pamphlet-quickref-row"><span>How we update you</span><span>Agreed regular check‑ins + written updates</span></div><div class="pamphlet-quickref-row"><span>How you give feedback</span><span>Via staging links and a single agreed feedback channel</span></div><div class="pamphlet-quickref-row"><span>Key stages</span><span>Plan → Build → Test → Deploy → Monitor</span></div><div class="pamphlet-quickref-row"><span>What we are</span><span>StoreConnect Frontend Engineering expertise</span></div><div class="pamphlet-quickref-row"><span>What we use</span><span>Base Theme, Theme Builder, content blocks, components</span></div></div>
+        <p class="pamphlet-small">Learn more: <a href="https://support.getstoreconnect.com" target="_blank" rel="noopener noreferrer">support.getstoreconnect.com</a></p>
+      </div>
+    </div>
+
+    <!-- CTA (black bg) -->
+    <div class="pamphlet-section pamphlet-cta">
+      <div class="pamphlet-container pamphlet-cta-inner">
+        <h3 class="pamphlet-headline">Ready to get it done?</h3>
+        <p>Stop guessing. Stop patching. Get a store that works. One conversation — that's all it takes.</p>
+        <a href="https://praxis.site/contact" class="pamphlet-cta-btn" target="_blank" rel="noopener noreferrer">Let's Talk — Contact Praxis</a>
+      </div>
+    </div>
+  </section>
   </div>
 
   <!-- ANALYSIS PROGRESS -->
