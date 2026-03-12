@@ -1,0 +1,10 @@
+{
+  "name": "storeconnect-site-analyser-frontend",
+  "version": "1.0.0",
+  "description": "Interactive frontend for the StoreConnect Site Analyser — Praxis branded",
+  "private": true,
+  "scripts": {
+    "dev": "npx serve . -l 3000 -s",
+    "start": "npx serve . -l 3000 -s"
+  }
+}
