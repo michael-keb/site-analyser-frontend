@@ -700,12 +700,12 @@
         })}`;
       } else {
         L.warn('share', `Share API returned ${res.status} — using fallback URL`);
-        els.shareLinkInput.value = `${window.location.origin}/report/${state.reportId}`;
+        els.shareLinkInput.value = `${window.location.origin}/reports/${state.reportId}`;
         els.shareMeta.textContent = `Link expires in ${CONFIG.shareLinkExpiryDays} days`;
       }
     } catch (err) {
       L.error('share', 'Share API error — using fallback URL', { error: err.message });
-      els.shareLinkInput.value = `${window.location.origin}/report/${state.reportId}`;
+      els.shareLinkInput.value = `${window.location.origin}/reports/${state.reportId}`;
       els.shareMeta.textContent = `Link expires in ${CONFIG.shareLinkExpiryDays} days`;
     }
 
@@ -835,7 +835,8 @@
   }, 1000);
 
   // ── Init ───────────────────────────────────────────────────
-  const pathMatch = window.location.pathname.match(/^\/report\/([^/]+)$/);
+  // Accept both /reports/:token and /report/:token (legacy)
+  const pathMatch = window.location.pathname.match(/^\/reports?\/([^/]+)$/);
   if (pathMatch) {
     const token = pathMatch[1];
     L.info('share', `Resolving shared link token: ${token}`);

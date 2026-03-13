@@ -428,6 +428,14 @@ strong { font-weight: 700; }
   font-size: 0.75rem; color: #9ca3af;
   margin-top: 0.75rem;
 }
+.modal-actions {
+  margin-top: 1rem;
+  display: flex; gap: 0.5rem; align-items: center;
+}
+.modal-actions .btn-toolbar {
+  padding: 0.5rem 1rem;
+  font-size: 0.88rem;
+}
 .modal-close {
   margin-top: 1rem; text-align: right;
 }

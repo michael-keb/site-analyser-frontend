@@ -3,66 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StoreConnect Site Analyser</title>
+  <title>Ways of Working — Praxis · StoreConnect Frontend</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Syne:wght@700;800&display=swap">
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Standalone page overrides */
+    body { background: #fff; }
+
+    /* Print styles */
+    @media print {
+      @page { margin: 1.5cm; }
+      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html, body { margin: 0; padding: 0; background: #fff; }
+      body { font-size: 11pt; }
+      .pamphlet-section,
+      .pamphlet-hero,
+      .pamphlet-table-wrap,
+      .pamphlet-diagram,
+      .pamphlet-checklist,
+      .pamphlet-process-steps,
+      .pamphlet-ps-item,
+      .pamphlet-resp-item { break-inside: avoid; page-break-inside: avoid; }
+      .pamphlet-cta-btn { display: inline-block; }
+      .pamphlet-cta-btn::after { content: " (praxis-au.com/contact)"; font-size: 0.85em; opacity: 0.8; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- LANDING: Hero + Ways of Working -->
-  <div id="view-landing" class="landing-view">
-  <div class="hero">
-    <div class="hero-tag">Praxis · StoreConnect Frontend Custodian</div>
-    <h1>Analyse your StoreConnect<br>store in seconds.</h1>
-    <div class="hero-sub">Enter your details and StoreConnect site URL below. We'll analyse it and email you a PDF report.</div>
-
-    <form class="url-form" id="url-form" novalidate>
-      <div class="contact-fields">
-        <input type="text" class="contact-input" id="contact-name" placeholder="Your name" autocomplete="name" required autofocus>
-        <input type="email" class="contact-input" id="contact-email" placeholder="Email address" autocomplete="email" required>
-        <input type="tel" class="contact-input" id="contact-phone" placeholder="Phone number" autocomplete="tel" required>
-      </div>
-      <div class="url-row">
-        <input
-          type="url"
-          class="url-input"
-          id="url-input"
-          placeholder="Enter your StoreConnect site URL"
-          autocomplete="url"
-          spellcheck="false"
-        >
-        <button type="submit" class="btn-analyse" id="btn-analyse">
-          <span class="btn-analyse-text">Analyse Site</span>
-          <span class="btn-analyse-spinner hidden" aria-hidden="true"></span>
-        </button>
-      </div>
-    </form>
-    <div class="form-error" id="form-error"></div>
-
-    <a href="#ways-of-working" class="hero-scroll-hint">How we work with you ↓</a>
-
-    <!-- Non-SC site warning (hidden by default) -->
-    <div class="form-warning hidden" id="form-warning">
-      <p>We couldn't confirm this is a StoreConnect site — results may be limited.</p>
-      <div class="form-warning-actions">
-        <button type="button" class="btn-secondary" id="btn-warning-cancel">Cancel</button>
-        <button type="button" class="btn-sm" id="btn-warning-continue">Continue Anyway</button>
-      </div>
-    </div>
-
-    <!-- Cached report prompt (hidden by default) -->
-    <div class="form-warning hidden" id="form-cached">
-      <p>We already have a recent report for this site.</p>
-      <div class="form-warning-actions">
-        <button type="button" class="btn-sm" id="btn-cached-load">Load Existing Report</button>
-        <button type="button" class="btn-secondary" id="btn-cached-rerun">Re-run Analysis</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Ways of Working Pamphlet — exact match to dba-ai-main /storeconnect -->
+  <!-- Ways of Working Pamphlet -->
   <section class="pamphlet" id="ways-of-working">
     <!-- Hero: black bg, white text -->
     <div class="pamphlet-hero">
@@ -124,6 +95,7 @@
         <div class="pamphlet-callout"><h4>No Surprises</h4><p>If we hit a blocker, we tell you. Fast. If timelines shift, we explain why and offer options.</p><blockquote>"Bad news doesn't age well. We surface it early. You get options. You stay in control."</blockquote></div>
         <div class="pamphlet-diagram"><div class="pamphlet-diagram-header"><span>Risk &amp; Escalation Flow</span><span>Fig. 4</span></div><div class="pamphlet-diagram-body pamphlet-flow"><div class="pamphlet-flow-step pamphlet-flow-accent">Blocker or risk identified</div><span class="pamphlet-flow-arrow">↓</span><div class="pamphlet-flow-step">We inform you (what, why, impact)</div><span class="pamphlet-flow-arrow">↓</span><p class="pamphlet-flow-label">Can fix within scope?</p><div class="pamphlet-flow-branch"><div><p class="pamphlet-flow-yes">Yes</p><div class="pamphlet-flow-step pamphlet-flow-small">Adjust plan &amp; confirm</div></div><div><p class="pamphlet-flow-no">No</p><div class="pamphlet-flow-step pamphlet-flow-small">Discuss options, agree new plan</div></div></div></div><div class="pamphlet-diagram-caption">Bad news doesn't come at launch day — it's caught and discussed early.</div></div>
       </div>
+    </div>
 
     <!-- §4 — Our Process (black bg) -->
     <div class="pamphlet-section pamphlet-inverted" id="wow-process">
@@ -131,7 +103,7 @@
         <p class="pamphlet-sectag pamphlet-sectag-dark">§04</p>
         <h3 class="pamphlet-headline">Our Process</h3>
         <p>Plan. Build. Test. Deploy. Monitor. Five steps. No mystery.</p>
-        <div class="pamphlet-timeline-bar"><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">1</span><span>Plan</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">2</span><span>Build</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">3</span><span>Test</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">4</span><span>Deploy</span></div><div class="pamphlet-tl-item"><span class="pamphlet-tl-num">5</span><span>Monitor</span></div></div>
+        <div class="pamphlet-timeline-bar"><div class="pamphlet-tl-item"><span>Plan</span></div><div class="pamphlet-tl-item"><span>Build</span></div><div class="pamphlet-tl-item"><span>Test</span></div><div class="pamphlet-tl-item"><span>Deploy</span></div><div class="pamphlet-tl-item"><span>Monitor</span></div></div>
         <div class="pamphlet-process-steps">
           <div class="pamphlet-ps-item"><span class="pamphlet-ps-num">1</span><div><h4>Plan</h4><p>Agree on what we are doing, when, and who does what. We define scope, timelines, milestones, and responsibilities. We align on brand and structure.</p><p class="pamphlet-ps-outcome">Outcome: A shared plan that everyone understands.</p></div></div>
           <div class="pamphlet-ps-item"><span class="pamphlet-ps-num">2</span><div><h4>Build</h4><p>Turn the plan into a working StoreConnect site. We apply your brand, set up page layouts, and wire in key flows like browse → add to cart → checkout.</p><p class="pamphlet-ps-outcome">Outcome: A working, branded version of your store on staging.</p></div></div>
@@ -195,139 +167,6 @@
       </div>
     </div>
   </section>
-  </div>
 
-  <!-- ANALYSIS PROGRESS -->
-  <div class="hero hidden" id="view-progress">
-    <div class="hero-tag">Analysing</div>
-    <h1 id="progress-domain">Scanning site...</h1>
-    <div class="hero-sub" id="progress-sub">Please wait while we crawl and analyse your StoreConnect store.</div>
-
-    <div class="progress-container">
-      <ul class="progress-steps" id="progress-steps">
-        <li class="progress-step" data-step="resolve">
-          <div class="step-icon pending" id="icon-resolve">1</div>
-          <div class="step-text">
-            <div class="step-label" id="label-resolve">Resolving domain...</div>
-            <div class="step-detail" id="detail-resolve"></div>
-          </div>
-        </li>
-        <li class="progress-step" data-step="crawl">
-          <div class="step-icon pending" id="icon-crawl">2</div>
-          <div class="step-text">
-            <div class="step-label" id="label-crawl">Discovering pages</div>
-            <div class="step-detail" id="detail-crawl"></div>
-          </div>
-        </li>
-        <li class="progress-step" data-step="dom">
-          <div class="step-icon pending" id="icon-dom">3</div>
-          <div class="step-text">
-            <div class="step-label" id="label-dom">Analysing pages</div>
-            <div class="step-detail" id="detail-dom"></div>
-          </div>
-        </li>
-        <li class="progress-step" data-step="sitemap">
-          <div class="step-icon pending" id="icon-sitemap">4</div>
-          <div class="step-text">
-            <div class="step-label" id="label-sitemap">Discovering site map</div>
-            <div class="step-detail" id="detail-sitemap"></div>
-          </div>
-        </li>
-        <li class="progress-step" data-step="frameworks">
-          <div class="step-icon pending" id="icon-frameworks">5</div>
-          <div class="step-text">
-            <div class="step-label" id="label-frameworks">Detecting JS frameworks</div>
-            <div class="step-detail" id="detail-frameworks"></div>
-          </div>
-        </li>
-        <li class="progress-step" data-step="scoring">
-          <div class="step-icon pending" id="icon-scoring">6</div>
-          <div class="step-text">
-            <div class="step-label" id="label-scoring">Scoring complexity</div>
-            <div class="step-detail" id="detail-scoring"></div>
-          </div>
-        </li>
-        <li class="progress-step" data-step="report">
-          <div class="step-icon pending" id="icon-report">7</div>
-          <div class="step-text">
-            <div class="step-label" id="label-report">Generating report</div>
-            <div class="step-detail" id="detail-report"></div>
-          </div>
-        </li>
-      </ul>
-
-      <div class="progress-bar-track">
-        <div class="progress-bar-fill" id="progress-bar"></div>
-      </div>
-
-      <div class="progress-footer">
-        <div class="progress-time" id="progress-time"></div>
-        <button type="button" class="btn-cancel" id="btn-cancel">Cancel</button>
-      </div>
-
-      <div class="progress-reassurance hidden" id="progress-reassurance">
-        Still working — some sites take longer to analyse.
-      </div>
-    </div>
-
-    <!-- Error banners -->
-    <div class="banner banner-error hidden" id="banner-error"></div>
-    <div class="banner banner-warning hidden" id="banner-warning"></div>
-    <div class="banner banner-info hidden" id="banner-reconnect">
-      Connection lost — reconnecting...
-    </div>
-  </div>
-
-  <!-- REPORT VIEW -->
-  <div class="hidden" id="view-report">
-    <div class="report-toolbar">
-      <div class="report-toolbar-left">
-        <span id="report-domain-label"></span>
-        <span class="badge badge-dark" id="report-date-badge"></span>
-        <span class="report-email-sent hidden" id="report-email-sent"></span>
-      </div>
-      <div class="report-toolbar-actions">
-        <button class="btn-toolbar" id="btn-new-analysis" title="Analyse another site">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.793 2.232a.75.75 0 01-.025 1.06L3.622 7.25h10.003a5.375 5.375 0 010 10.75H10.75a.75.75 0 010-1.5h2.875a3.875 3.875 0 000-7.75H3.622l4.146 3.957a.75.75 0 01-1.036 1.085l-5.5-5.25a.75.75 0 010-1.085l5.5-5.25a.75.75 0 011.06.025z" clip-rule="evenodd"/></svg>
-          New Analysis
-        </button>
-        <button class="btn-toolbar" id="btn-share" title="Share report">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M13 4.5a2.5 2.5 0 11.702 1.737L6.97 9.604a2.518 2.518 0 010 .799l6.733 3.366a2.5 2.5 0 11-.671 1.341l-6.733-3.366a2.5 2.5 0 110-3.482l6.733-3.366A2.52 2.52 0 0113 4.5z"/></svg>
-          Share
-        </button>
-      </div>
-    </div>
-
-    <!-- Warning banner for partial results -->
-    <div class="hidden" id="report-warning-bar" style="background:#fef9c3;padding:0.6rem 2rem;font-size:0.82rem;color:#92400e;text-align:center;border-bottom:1px solid #fde68a;"></div>
-
-    <iframe class="report-frame" id="report-frame" title="Site Analysis Report"></iframe>
-  </div>
-
-  <!-- SHARE MODAL -->
-  <div class="modal-overlay" id="share-modal">
-    <div class="modal">
-      <h3>Share Report</h3>
-      <p>Anyone with this link can view the report. Link expires in <strong id="share-expiry">30 days</strong>.</p>
-      <div class="share-link-row">
-        <input type="text" class="share-link-input" id="share-link-input" readonly>
-        <button class="btn-copy" id="btn-copy">Copy</button>
-      </div>
-      <div class="share-meta" id="share-meta"></div>
-      <div class="modal-actions">
-        <button class="btn-toolbar primary" id="btn-download" title="Download PDF">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path d="M10.75 2.75a.75.75 0 00-1.5 0v8.614L6.295 8.235a.75.75 0 10-1.09 1.03l4.25 4.5a.75.75 0 001.09 0l4.25-4.5a.75.75 0 00-1.09-1.03l-2.955 3.129V2.75z"/><path d="M3.5 12.75a.75.75 0 00-1.5 0v2.5A2.75 2.75 0 004.75 18h10.5A2.75 2.75 0 0018 15.25v-2.5a.75.75 0 00-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5z"/></svg>
-          Download PDF
-        </button>
-      </div>
-      <div class="modal-close">
-        <button id="btn-close-modal">Close</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/config.js"></script>
-  <script src="js/logger.js"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,5 @@
+# Redirect /report/:token → /reports/:token (share links use plural)
+/report/:token    /reports/:token   301
+
+# SPA fallback — serve index.html for client-side routes (e.g. /reports/:token)
+/reports/*    /index.html   200
